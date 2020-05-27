@@ -25,7 +25,7 @@ class Vector:
 
     def __add__(self, other):
         if not isinstance(other, Vector):
-            raise TypeError("Vector operand + only accept vector")
+            return NotImplemented
         if self.size != other.size:
             raise ValueError("Vector must have the same size.")
         total = []
@@ -38,7 +38,7 @@ class Vector:
 
     def __sub__(self, other):
         if not isinstance(other, Vector):
-            raise TypeError("Vector operand - only accept vector")
+            return NotImplemented
         if self.size != other.size:
             raise ValueError("Vector must have the same size.")
         total = []
@@ -51,7 +51,7 @@ class Vector:
 
     def __truediv__(self, other):
         if not isinstance(other, Number):
-            raise TypeError("Vector operand / only accepts numbers")
+            return NotImplemented
         return (Vector([v / other for v in self.values]))
 
     def __rtruediv__(self, other):
@@ -66,7 +66,7 @@ class Vector:
             return sum(self.values[i] * other.values[i]
                        for i in range(self.size))
         else:
-            raise TypeError("Vector operand * only accepts numbers or vector")
+            return NotImplemented
 
     def __rmul__(self, other):
         return (self * other)
